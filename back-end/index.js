@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+const router = require('./routes');
+
+app.use(router);
 
 app.get("/", (req, res) => {
   res.send("Server no ar");
