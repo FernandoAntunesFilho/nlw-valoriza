@@ -11,21 +11,27 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       email: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       password: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       admin: {
         type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
       createdAt: {
         type: Sequelize.DATE,
+        allowNull: false,
       },
       updatedAt: {
         type: Sequelize.DATE,
+        allowNull: false,
       },
     });
   },
