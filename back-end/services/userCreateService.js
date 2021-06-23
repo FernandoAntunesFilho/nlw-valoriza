@@ -1,6 +1,6 @@
 const { User } = require("../models");
 const userEmailExists = require("./userEmailExistsService");
-const userHasValidEmail = require("./userHasValidEmail");
+const userHasValidEmail = require("./userHasValidEmailService");
 
 module.exports = async (userData) => {
   const { email } = userData;
@@ -13,6 +13,6 @@ module.exports = async (userData) => {
     throw new Error(`Email ${email} já existe`);
   }
 
-  const newUser = User.create(userData);
+  const newUser = await User.create(userData);
   return newUser;
 };
