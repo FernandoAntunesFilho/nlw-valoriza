@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const userCreateController = require('./controllers/userCreateController');
 const tagCreateController = require('./controllers/tagCreateController');
+const userAuthenticateController = require('./controllers/userAuthenticateController');
 const ensureAdmin = require('./middlewares/ensureAdmin');
 
 router.get("/", (req, res) => {
