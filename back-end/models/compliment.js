@@ -6,13 +6,13 @@ const complimentModel = (sequelize, DataTypes) => {
     message: DataTypes.TEXT,
   });
 
-  Compliment.associate = (models) => {
+  Compliment.belongsTo = (models) => {
     Compliment.hasMany(models.User, {
-      as: "userSender",
+      as: "sentBy",
       foreignKey: "userSender",
     });
     Compliment.hasMany(models.User, {
-      as: "userReceiver",
+      as: "receivedBy",
       foreignKey: "userReceiver",
     });
     Compliment.hasMany(models.Tag, {
