@@ -10,5 +10,6 @@ router.get("/", (req, res) => {
 
 router.post("/user", userCreateController);
 router.post("/tag", ensureAdmin, tagCreateController);
+router.post("/login", userAuthenticateController);
 
 module.exports = router;
