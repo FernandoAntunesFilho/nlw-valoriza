@@ -6,20 +6,12 @@ const complimentModel = (sequelize, DataTypes) => {
     message: DataTypes.TEXT,
   });
 
-  Compliment.belongsTo = (models) => {
-    Compliment.hasMany(models.User, {
-      as: "sentBy",
-      foreignKey: "userSender",
-    });
-    Compliment.hasMany(models.User, {
-      as: "receivedBy",
-      foreignKey: "userReceiver",
-    });
-    Compliment.hasMany(models.Tag, {
-      as: "tag",
-      foreignKey: "tagId",
-    });
+  Compliment.associate = (models) => {
+    Compliment.belongsTo(models.User, { as: "sender", foreignKey: "userSender" });
   };
+  // Aluno.associate = (models) => {
+  //   Aluno.belongsTo(models.Turma, { as: "turma", foreignKey: "turmaId" });
+  // };
 
   return Compliment;
 };
