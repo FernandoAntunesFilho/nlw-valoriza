@@ -4,6 +4,7 @@ const userCreateController = require('./controllers/userCreateController');
 const tagCreateController = require('./controllers/tagCreateController');
 const userAuthenticateController = require('./controllers/userAuthenticateController');
 const complimentCreateController = require('./controllers/complimentCreateController');
+const complimentReceiveController = require('./controllers/complimentReceiveController');
 const ensureAdmin = require('./middlewares/ensureAdmin');
 const ensureAuthentication = require('./middlewares/ensureAuthentication');
 
@@ -15,5 +16,6 @@ router.post("/user", userCreateController);
 router.post("/tag", ensureAuthentication, ensureAdmin, tagCreateController);
 router.post("/login", userAuthenticateController);
 router.post("/compliment", ensureAuthentication, complimentCreateController);
+router.post('/compliment/user/receive', ensureAuthentication, complimentReceiveController);
 
 module.exports = router;
