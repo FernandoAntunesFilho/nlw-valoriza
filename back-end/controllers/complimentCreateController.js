@@ -1,4 +1,7 @@
+const complimentCreateService = require('../services/complimentCreateService');
+
 module.exports = async (req, res) => {
   const data = req.body;
-  res.status(200).json(data);
+  const result = await complimentCreateService(data);
+  res.status(200).json(result);
 };
