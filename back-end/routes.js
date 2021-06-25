@@ -13,9 +13,9 @@ router.get("/", (req, res) => {
 });
 
 router.post("/user", userCreateController);
+router.post('/user/compliment/receive', ensureAuthentication, complimentReceiveController);
 router.post("/tag", ensureAuthentication, ensureAdmin, tagCreateController);
 router.post("/login", userAuthenticateController);
 router.post("/compliment", ensureAuthentication, complimentCreateController);
-router.post('/compliment/user/receive', ensureAuthentication, complimentReceiveController);
 
 module.exports = router;
