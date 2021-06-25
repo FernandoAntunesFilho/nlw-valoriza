@@ -11,12 +11,6 @@ const complimentModel = (sequelize, DataTypes) => {
     Compliment.belongsTo(models.User, { as: "receiver", foreignKey: "userReceiver" });
     Compliment.belongsTo(models.Tag, { as: "tag", foreignKey: "tagId" });
   };
-  // Compliment.associate = (models) => {
-  //   Compliment.belongsTo(models.Tag, { as: "tag", foreignKey: "tagId" });
-  // };
-  // Aluno.associate = (models) => {
-  //   Aluno.belongsTo(models.Turma, { as: "turma", foreignKey: "turmaId" });
-  // };
 
   return Compliment;
 };
