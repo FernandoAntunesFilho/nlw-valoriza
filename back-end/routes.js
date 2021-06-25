@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const userCreateController = require('./controllers/userCreateController');
 const userAuthenticateController = require('./controllers/userAuthenticateController');
+const userListController = require('./controllers/userListController');
 const tagCreateController = require('./controllers/tagCreateController');
 const tagListController = require('./controllers/tagListController');
 const complimentCreateController = require('./controllers/complimentCreateController');
@@ -15,6 +16,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/user", userCreateController);
+router.get("/user", ensureAuthentication, ensureAdmin, userListController);
 router.post('/user/compliment/receive', ensureAuthentication, complimentReceiveController);
 router.post('/user/compliment/send', ensureAuthentication, complimentSendController);
 router.post("/tag", ensureAuthentication, ensureAdmin, tagCreateController);
