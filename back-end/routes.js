@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/user", userCreateController);
-router.post("/tag", ensureAdmin, tagCreateController);
+router.post("/tag", ensureAuthentication, ensureAdmin, tagCreateController);
 router.post("/login", userAuthenticateController);
 router.post("/compliment", ensureAuthentication, complimentCreateController);
 
