@@ -1,4 +1,4 @@
-const complimentSendService = require('../services/complimentSendService');
+const complimentSendService = require("../services/complimentSendService");
 
 module.exports = async (req, res) => {
   const userId = req.userSender;

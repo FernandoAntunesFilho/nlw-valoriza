@@ -1,4 +1,4 @@
-const tagListService = require('../services/tagListService');
+const tagListService = require("../services/tagListService");
 
 module.exports = async (req, res) => {
   const tags = await tagListService();

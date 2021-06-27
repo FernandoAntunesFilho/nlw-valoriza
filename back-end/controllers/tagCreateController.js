@@ -1,4 +1,4 @@
-const tagCreateService = require('../services/tagCreateService');
+const tagCreateService = require("../services/tagCreateService");
 
 module.exports = async (req, res) => {
   const { name } = req.body;

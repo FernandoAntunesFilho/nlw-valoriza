@@ -1,8 +1,8 @@
-const { Tag } = require('../models');
+const { Tag } = require("../models");
 
 module.exports = async () => {
   const tags = await Tag.findAll({
-    order: ['name'],
+    order: ["name"],
     attributes: { exclude: ["createdAt", "updatedAt"] },
   });
   return tags;

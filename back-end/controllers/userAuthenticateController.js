@@ -1,4 +1,4 @@
-const userAuthenticateService = require('../services/userAuthenticateService');
+const userAuthenticateService = require("../services/userAuthenticateService");
 
 module.exports = async (req, res) => {
   const data = req.body;

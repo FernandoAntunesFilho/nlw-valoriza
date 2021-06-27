@@ -14,7 +14,7 @@ module.exports = {
         allowNull: false,
         references: {
           model: "Users",
-          key: 'id',
+          key: "id",
         },
       },
       userReceiver: {
@@ -22,7 +22,7 @@ module.exports = {
         allowNull: false,
         references: {
           model: "Users",
-          key: 'id',
+          key: "id",
         },
       },
       tagId: {
@@ -30,7 +30,7 @@ module.exports = {
         allowNull: false,
         references: {
           model: "Tags",
-          key: 'id',
+          key: "id",
         },
       },
       message: {

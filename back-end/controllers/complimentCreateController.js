@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
   const { userSender } = req;
 
   data.userSender = userSender;
-  
+
   const result = await complimentCreateService(data);
   res.status(200).json(result);
 };

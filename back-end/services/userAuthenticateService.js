@@ -23,7 +23,7 @@ module.exports = async (data) => {
   }
 
   const token = sign({ email: user.email }, process.env.SECRET, {
-    subject: (user.id).toString(),
+    subject: user.id.toString(),
     expiresIn: "1d",
   });
 

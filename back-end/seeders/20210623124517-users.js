@@ -1,4 +1,4 @@
-const { hash } = require('bcryptjs');
+const { hash } = require("bcryptjs");
 
 module.exports = {
   up: async (queryInterface, _Sequelize) => {

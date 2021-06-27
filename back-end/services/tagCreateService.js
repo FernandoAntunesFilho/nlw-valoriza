@@ -1,6 +1,6 @@
 const { Tag } = require("../models");
 const tagHasValidName = require("./tagHasValidNameService");
-const tagNameExists = require('./tagNameExistsService');
+const tagNameExists = require("./tagNameExistsService");
 
 module.exports = async (name) => {
   if (!tagHasValidName(name)) {
