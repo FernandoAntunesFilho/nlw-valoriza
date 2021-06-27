@@ -1,6 +1,7 @@
 const { Compliment } = require("../models");
 const complimentSenderReceiverSame = require("./complimentSenderReceiverSameService");
 const complimentValidUsersService = require("./complimentValidUsersService");
+const complimentSendEmailService = require('./complimentSendEmailService');
 
 module.exports = async (data) => {
   const { userSender, userReceiver } = data;
@@ -14,5 +15,7 @@ module.exports = async (data) => {
   }
 
   const newCompliment = await Compliment.create(data);
+  complimentSendEmailService();
+
   return newCompliment;
 };
