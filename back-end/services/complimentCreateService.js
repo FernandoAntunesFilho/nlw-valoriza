@@ -18,9 +18,16 @@ module.exports = async (data) => {
 
   const newCompliment = await Compliment.create(data);
   const userReceiverEmail = await userGetEmailService(userReceiver);
+  const userReceiverName = await userGetNameService(userReceiver);
   const userSenderEmail = await userGetEmailService(userSender);
   const userSenderName = await userGetNameService(userSender);
-  complimentSendEmailService(userSenderName, userSenderEmail, userReceiverEmail, message);
+  complimentSendEmailService(
+    userSenderName,
+    userSenderEmail,
+    userReceiverName,
+    userReceiverEmail,
+    message
+  );
 
   return newCompliment;
 };
