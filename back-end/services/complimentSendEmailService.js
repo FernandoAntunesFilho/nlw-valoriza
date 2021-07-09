@@ -10,27 +10,16 @@ var transport = nodemailer.createTransport({
   }
 });
 
-// const transporter = nodemailer.createTransport({
-//   host: smtpConfig.host,
-//   port: smtpConfig.port,
-//   // service: "gmail",
-//   secure: false,
-//   auth: {
-//     user: smtpConfig.user,
-//     pass: smtpConfig.pass,
-//   },
-//   // tls: {
-//   //   rejectUnauthorized: false,
-//   // },
-// });
-
-module.exports = async () => {
+module.exports = async (userSenderName, userSenderEmail, userReceiverEmail, message) => {
+  const from = `${userSenderName} <${userSenderEmail}>`
   const mailSent = await transport.sendMail({
-    text: "Texto da mensagem",
+    text: message,
     subject: "Você recebeu um elogio",
-    from: "Fernando Antunes <fernando.antunes1@gmail.com>",
-    to: "fernando.antunes1@gmail.com",
+    from: from,
+    to: userReceiverEmail,
   });
 
   console.log(mailSent);
 };
+
+// COMO ENVIAR UM HTML COMO TEXTO DA MENSAGEM?
