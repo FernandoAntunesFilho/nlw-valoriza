@@ -23,7 +23,7 @@ module.exports = async (data) => {
   const userSenderEmail = await userGetEmailService(userSender);
   const userSenderName = await userGetNameService(userSender);
   const tagName = await tagGetNameService(tagId);
-  console.log(tagName);
+  
   complimentSendEmailService(
     userSenderName,
     userSenderEmail,
