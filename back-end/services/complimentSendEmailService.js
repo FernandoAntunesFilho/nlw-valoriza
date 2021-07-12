@@ -17,12 +17,13 @@ module.exports = async (
   userSenderEmail,
   userReceiverName,
   userReceiverEmail,
-  message
+  message,
+  tagName,
 ) => {
   ejs.renderFile(
     path.join(__dirname, "../templates/email.ejs"),
-    { message, userReceiverName, userSenderName },
-    async (err, data) => {
+    { message, userReceiverName, userSenderName, tagName }, //ADICIONAR A TAG DO ELOGIO
+    async (err, data) => {                         //FAZER O CSS DO EMAIL
       if (err) {
         console.log(err);
       } else {
@@ -39,5 +40,3 @@ module.exports = async (
     }
   );
 };
-
-// COMO ENVIAR UM HTML COMO TEXTO DA MENSAGEM?

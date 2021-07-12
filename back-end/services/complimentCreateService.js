@@ -4,9 +4,10 @@ const complimentValidUsersService = require("./complimentValidUsersService");
 const complimentSendEmailService = require("./complimentSendEmailService");
 const userGetEmailService = require("./userGetEmailService");
 const userGetNameService = require("./userGetNameService");
+const tagGetNameService = require('./tagGetNameService');
 
 module.exports = async (data) => {
-  const { userSender, userReceiver, message } = data;
+  const { userSender, userReceiver, message, tagId } = data;
 
   if (!(await complimentValidUsersService(userSender, userReceiver))) {
     throw new Error("Usuários inválidos");
@@ -21,12 +22,15 @@ module.exports = async (data) => {
   const userReceiverName = await userGetNameService(userReceiver);
   const userSenderEmail = await userGetEmailService(userSender);
   const userSenderName = await userGetNameService(userSender);
+  const tagName = await tagGetNameService(tagId);
+  console.log(tagName);
   complimentSendEmailService(
     userSenderName,
     userSenderEmail,
     userReceiverName,
     userReceiverEmail,
-    message
+    message,
+    tagName,
   );
 
   return newCompliment;
