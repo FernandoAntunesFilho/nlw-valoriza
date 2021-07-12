@@ -35,7 +35,7 @@ module.exports = async (
           to: userReceiverEmail,
         });
 
-        console.log(mailSent);
+        console.log(mailSent.messageId);
       }
     }
   );
