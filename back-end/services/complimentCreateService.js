@@ -4,7 +4,8 @@ const complimentValidUsersService = require("./complimentValidUsersService");
 const complimentSendEmailService = require("./complimentSendEmailService");
 const userGetEmailService = require("./userGetEmailService");
 const userGetNameService = require("./userGetNameService");
-const tagGetNameService = require('./tagGetNameService');
+const tagIdExistsService = require("./tagIdExistsService");
+const tagGetNameService = require("./tagGetNameService");
 
 module.exports = async (data) => {
   const { userSender, userReceiver, message, tagId } = data;
@@ -17,20 +18,24 @@ module.exports = async (data) => {
     throw new Error("Usuário de destino inválido");
   }
 
+  if (!(await tagIdExistsService(tagId))) {
+    throw new Error("Tag inválida");
+  }
+
   const newCompliment = await Compliment.create(data);
   const userReceiverEmail = await userGetEmailService(userReceiver);
   const userReceiverName = await userGetNameService(userReceiver);
   const userSenderEmail = await userGetEmailService(userSender);
   const userSenderName = await userGetNameService(userSender);
   const tagName = await tagGetNameService(tagId);
-  
+
   complimentSendEmailService(
     userSenderName,
     userSenderEmail,
     userReceiverName,
     userReceiverEmail,
     message,
-    tagName,
+    tagName
   );
 
   return newCompliment;
