@@ -27,3 +27,7 @@ A aplicação completa terá Back-End e Front-End.
   [X] O usuário precisa estar autenticado na aplicação
   
   [X] O usuário que recebe o elogio irá receber um e-mail
+  
+  ## Próximos passos
+  
+  - Desenvolver o Front-End 🤩 💻
